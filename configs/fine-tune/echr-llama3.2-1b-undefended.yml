@@ -7,7 +7,7 @@ dataset_args:
   pseudonymize: False  # for non-scrubbing, disabling this can save time in data loading.
 
 trainer_args:
-  output_dir: ./results/echr-llama3-1b-undefended/
+  output_dir: ./results/echr-llama3.2-1b-undefended/
   evaluation_strategy: steps
   eval_steps: 200
   logging_steps: 10
@@ -31,7 +31,7 @@ privacy_args:
   target_epsilon: 8  # Adjust based on privacy needs
 
 model_args:
-  architecture: meta-llama/Llama-3-1B  # Smaller model
+  architecture: meta-llama/Llama-3.2-1B  
   pre_trained: True
   device_map: auto
   peft: none  # No LoRA for now
