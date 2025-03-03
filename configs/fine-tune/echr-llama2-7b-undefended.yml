@@ -37,8 +37,12 @@ model_args:
   pre_trained: True   # Start from a pre-trained checkpoint
   # device_map: auto
   # peft
-  peft: none
+  #peft: none
   # lora_r: 4  # default: 4
+  peft: lora  # Enable LoRA
+  lora_r: 4  # Rank (controls adaptation, 8 is a good balance)
+  lora_alpha: 16  # Scaling factor
+  lora_dropout: 0.05 
 
 ner_args:
   ner: flair
