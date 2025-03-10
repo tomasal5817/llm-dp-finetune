@@ -23,7 +23,7 @@ trainer_args:
   fp16: True
   fp16_full_eval: True
   learning_rate: 0.00001
-  resume_from_checkpoint: False
+  resume_from_checkpoint: True
   deepspeed: configs/fine-tune/deepspeed_stage2.json  
   do_train: True
 
