@@ -1,0 +1,47 @@
+# Fine-tune an LM on the enron text dataset.
+
+dataset_args:
+  dataset_path: data/enron
+  dataset_mode: undefended
+  sample_duplication_rate: 1
+  pseudonymize: False  # for non-scrubbing, disabling this can save time in data loading.
+
+trainer_args:
+  output_dir: ./results/echr-llama3.2-3b-undefended/
+  evaluation_strategy: steps
+  eval_steps: 200
+  logging_steps: 10
+  save_total_limit: 2
+  save_strategy: steps
+  save_steps: 500  
+  overwrite_output_dir: True
+  callback_after_n_steps: 100
+  num_train_epochs: 1
+  gradient_accumulation_steps: 4  
+  per_device_train_batch_size: 2  
+  per_device_eval_batch_size: 2
+  fp16: True
+  fp16_full_eval: True
+  learning_rate: 0.00001
+  resume_from_checkpoint: True
+  deepspeed: configs/fine-tune/deepspeed_lora_stage2.json  
+  do_train: True
+
+privacy_args:
+  target_epsilon: 8  # Adjust based on privacy needs
+
+model_args:
+  architecture: meta-llama/Llama-3.2-3B-Instruct  
+  pre_trained: True
+  device_map: auto
+  # peft: none  
+  peft: lora  # Enable LoRA
+  lora_r: 4  # Rank (controls adaptation, 8 is a good balance)
+  lora_alpha: 16  # Scaling factor
+  lora_dropout: 0.05 
+
+ner_args:
+  ner: flair
+  ner_model: flair/ner-english-ontonotes-large
+  anon_token: <MASK>
+  anonymize: False
