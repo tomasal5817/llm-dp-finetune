@@ -1,0 +1,47 @@
+# Fine-tune an LM on the enron text dataset.
+
+dataset_args:
+  dataset_path: data/enron
+  dataset_mode: undefended
+  sample_duplication_rate: 1
+
+trainer_args:
+  output_dir: ./results/enron-deep-seek-r1-distill-qwen-14b-undefended/
+  evaluation_strategy: steps
+  eval_steps: 200
+  logging_steps: 10
+  save_total_limit: 2
+  save_strategy: steps
+  save_steps: 500  
+  overwrite_output_dir: True
+  callback_after_n_steps: 100
+  num_train_epochs: 2
+  gradient_accumulation_steps: 4  
+  per_device_train_batch_size: 4 # test 4 
+  per_device_eval_batch_size: 4
+  fp16: False
+  bf16: True 
+  fp16_full_eval: True
+  learning_rate: 0.00001
+  resume_from_checkpoint: False
+  deepspeed: configs/fine-tune/deepspeed_lora_stage2.json  
+  do_train: True
+
+#privacy_args:
+  #target_epsilon: 8  # Adjust based on privacy needs
+
+model_args:
+  architecture: deepseek-ai/DeepSeek-R1-Distill-Qwen-14B  
+  pre_trained: True
+  device_map: auto
+  # peft: none  
+  peft: lora  # Enable LoRA
+  lora_r: 4  # Rank (controls adaptation, 8 is a good balance)
+  lora_alpha: 16  # Scaling factor
+  lora_dropout: 0.05 
+
+ner_args:
+  ner: flair
+  ner_model: flair/ner-english-ontonotes-large
+  anon_token: <MASK>
+  anonymize: False
