@@ -4,6 +4,7 @@ dataset_args:
   dataset_path: data/enron
   dataset_mode: undefended
   sample_duplication_rate: 1
+  pseudonymize: False  # for non-scrubbing, disabling this can save time in data loading.
 
 trainer_args:
   output_dir: ./results/enron-deep-seek-r1-distill-qwen-14b-undefended/
