@@ -2,7 +2,7 @@
 # Licensed under the MIT License.
 import torch
 # to disable flash attn?
-torch.backends.cuda.enable_mem_efficient_sdp(False)
+# torch.backends.cuda.enable_mem_efficient_sdp(False)
 torch.backends.cuda.enable_flash_sdp(False)
 
 from pprint import pprint
