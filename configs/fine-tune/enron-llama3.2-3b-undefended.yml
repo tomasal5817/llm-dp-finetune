@@ -31,7 +31,7 @@ privacy_args:
   target_epsilon: 8  # Adjust based on privacy needs
 
 model_args:
-  model_ckpt: "~/llama3_checkpoint"  # Use local path if available
+  # model_ckpt: "~/llama3_checkpoint"  # Use local path if available
   architecture: "meta-llama/Llama-3.2-3B-Instruct"
   pre_trained: True
   device_map: auto
