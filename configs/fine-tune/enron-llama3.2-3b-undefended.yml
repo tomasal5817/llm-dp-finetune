@@ -7,7 +7,7 @@ dataset_args:
   pseudonymize: False  # for non-scrubbing, disabling this can save time in data loading.
 
 trainer_args:
-  output_dir: ./results/echr-llama3.2-3b-undefended/
+  output_dir: ./results/enron-llama3.2-3b-undefended/
   evaluation_strategy: steps
   eval_steps: 200
   logging_steps: 10
