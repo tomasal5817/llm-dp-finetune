@@ -2,9 +2,6 @@
     "bf16": {
         "enabled": true
     },
-    "fp16": {
-        "enabled": false
-    },
     "train_micro_batch_size_per_gpu": 1,
     "wall_clock_breakdown": false,
     "zero_optimization": {
