@@ -9,7 +9,7 @@ from typing import List, Union
 import numpy as np
 import torch
 from tqdm import tqdm
-from transformers import DataCollatorForLanguageModeling, Trainer, AutoTokenizer, , \
+from transformers import DataCollatorForLanguageModeling, Trainer, AutoTokenizer, AutoModelForCausalLM, \
     TrainerCallback
 from transformers.optimization import get_linear_schedule_with_warmup
 
