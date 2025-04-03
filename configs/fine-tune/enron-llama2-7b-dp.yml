@@ -18,7 +18,7 @@ trainer_args:
   overwrite_output_dir: True
   # save_steps: 750  # forgot to remove
   callback_after_n_steps: 100
-  num_train_epochs: 4
+  num_train_epochs: 3
   # batch size=32
   gradient_accumulation_steps: 8
   limit_eval_dataset: 300

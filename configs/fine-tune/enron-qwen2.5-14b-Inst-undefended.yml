@@ -1,7 +1,8 @@
 # Fine-tune an LM on the enron text dataset.
+# enron-qwen2.5-14b-Inst-undefended.yml
 
 dataset_args:
-  dataset_path: data/enron
+  dataset_path: data/enron/enron.py
   dataset_mode: undefended
   sample_duplication_rate: 1
   pseudonymize: False  # for non-scrubbing, disabling this can save time in data loading.
@@ -16,17 +17,17 @@ trainer_args:
   save_steps: 500  
   overwrite_output_dir: True
   callback_after_n_steps: 100
-  num_train_epochs: 4
+  num_train_epochs: 3
   gradient_accumulation_steps: 4  
-  per_device_train_batch_size: 4  
-  per_device_eval_batch_size: 4
+  per_device_train_batch_size: 8  
+  per_device_eval_batch_size: 8
   bf16: True
   bf16_full_eval: True
   #fp16: True
   #fp16_full_eval: True
   learning_rate: 0.00001
   resume_from_checkpoint: False
-  deepspeed: configs/fine-tune/deepspeed_lora_stage2.json  
+  deepspeed: configs/fine-tune/deepspeed_lora_stage1.json  
   do_train: True
 
 model_args:

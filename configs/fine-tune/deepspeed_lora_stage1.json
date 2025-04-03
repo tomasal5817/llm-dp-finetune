@@ -5,10 +5,10 @@
     "fp16": {
         "enabled": "auto"
     },
-    "train_micro_batch_size_per_gpu": 1,
+    "train_micro_batch_size_per_gpu": 8,
     "wall_clock_breakdown": false,
     "zero_optimization": {
-        "stage": 2,
+        "stage": 1,
         "allgather_partitions": true,
         "allgather_bucket_size": 2e8,
         "overlap_comm": true,
