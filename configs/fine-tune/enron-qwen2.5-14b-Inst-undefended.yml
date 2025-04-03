@@ -8,7 +8,7 @@ dataset_args:
   pseudonymize: False  # for non-scrubbing, disabling this can save time in data loading.
 
 trainer_args:
-  output_dir: ./results/enron-qwen2.5-14b-Inst-undefended/
+  output_dir: ./results/enron-qwen2.5-7b-Inst-undefended/
   evaluation_strategy: steps
   eval_steps: 200
   logging_steps: 10
@@ -32,9 +32,9 @@ trainer_args:
 
 model_args:
   # model_ckpt: "~/"  # Use local path if available
-  architecture: "Qwen/Qwen2.5-14B-Instruct" # Hugging Face model path
+  architecture: "Qwen/Qwen2.5-7B-Instruct" # Hugging Face model path
   pre_trained: True
-  device_map: auto
+  # device_map: auto
   peft: lora  
   lora_r: 8  
   lora_alpha: 32  
