@@ -21,10 +21,10 @@ trainer_args:
   gradient_accumulation_steps: 4  
   per_device_train_batch_size: 8  
   per_device_eval_batch_size: 8
-  #bf16: True
-  #bf16_full_eval: True
-  fp16: True
-  fp16_full_eval: True
+  bf16: True
+  bf16_full_eval: True
+  #fp16: True
+  #fp16_full_eval: True
   learning_rate: 0.00001
   resume_from_checkpoint: False
   deepspeed: configs/fine-tune/deepspeed_lora_stage1.json  
